@@ -12,6 +12,6 @@ public class LinkMeApp extends Application {
     }
 
     public void showToast(final String message, final int length) {
-        Toast.makeText(this, message, length);
+        Toast.makeText(this, message, length).show();
     }
 }

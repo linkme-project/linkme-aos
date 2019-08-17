@@ -24,21 +24,21 @@ import retrofit2.Response;
 
 public class MainActivity extends BaseActivity {
 
-    private APIService mApiService;
-    private ActivityMainBinding mBinding;
+    private APIService apiService;
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        mApiService = RetrofitAPI.getClient().create(APIService.class);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        apiService = RetrofitAPI.getClient().create(APIService.class);
 
         apiTest();
     }
 
 
     private void apiTest() {
-        Call<String> call = mApiService.getNotices();
+        Call<String> call = apiService.getNotices();
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
