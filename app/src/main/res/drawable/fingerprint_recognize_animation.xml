@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/fingermark_ani_01" android:duration="200" />
+    <item android:drawable="@drawable/fingermark_ani_02" android:duration="200" />
+    <item android:drawable="@drawable/fingermark_ani_03" android:duration="200" />
+    <item android:drawable="@drawable/fingermark_ani_04" android:duration="200" />
+
+</animation-list>
