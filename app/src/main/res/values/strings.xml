@@ -1,6 +1,45 @@
 <resources>
     <string name="app_name">LinkMe</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="phonecert_terms_all_agree">모든 약관에 동의</string>
+    <string name="phonecert_terms_1">개인정보 이용 동의 (필수)</string>
+    <string name="phonecert_terms_2">고유식별정보처리 동의 (필수)</string>
+    <string name="phonecert_terms_3">통신사 이용약관 동의 (필수)</string>
+    <string name="phonecert_terms_4">서비스 이용약관 동의 (필수)</string>
+
+    <string name="news_agency">통신사 선택</string>
+    <string name="select_nation">국적 선택</string>
+    <string name="select_gender">성별 선택</string>
+
+    <string name="btn_auth">인증번호 받기</string>
+    <string name="btn_confirm">확인</string>
+
+    <string name="action_settings">설정</string>
+    <string name="notice">알림</string>
+    <string name="recognition_level">보안 인증 등급</string>
+    <string name="recognition_noisy">Threshold Noisy</string>
+    <string name="recognition_loud">Threshold Loud</string>
+    <string name="recognition_whisper">Threshold Whisper</string>
+    <string name="register">음성등록</string>
+    <string name="verify">음성인증</string>
+    <string name="guide_title">자연스럽게 말해주세요.</string>
+    <string name="guide_word">\"내 목소리로 확인\"</string>
+    <string name="guide_complete">음성등록이 완료 되었습니다.</string>
+    <string name="guide_try_again">음성 재등록</string>
+    <string name="guide_close">완료</string>
+
+    <string name="txt_confirm">완료</string>
+    <string name="txt_pin">PIN 결제</string>
+
+    <string name="msg_start_verify">보이스인증을 위해 아래 문장을 읽어주세요.</string>
+    <string name="msg_passed_verify">인증 되었습니다.</string>
+    <string name="msg_start_train">음성등록을 시작합니다..</string>
+    <string name="msg_training_step">%d "번째 입력음성을 입력하세요.</string>
+    <string name="msg_training_step_fail">%d 번째 입력음성이 잘못되었습니다. \n 다시 말씀해주세요.</string>
+    <string name="msg_training_verify">보이스인식 인증 등록을 위해 아래 문장을 읽어주세요.</string>
+    <string name="msg_training_modeling">보이스 입력이 모두 완료되었습니다.\n보이스인증 등록을 위한\n트레이닝 적용 중입니다.\n잠시만 기다려주세요.</string>
+
+    <string name="fingerprint_software_update_setting">지문 설정메뉴로 이동하시겠습니까?</string>
+    <string name="app_exit">종료</string>
+    <string name="btn_cancel">취소</string>
 </resources>
