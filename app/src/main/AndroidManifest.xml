@@ -5,10 +5,15 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="com.pantech.fingerprint.security" />
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
+    <!-- 2016.03.7. yjosn. FIDO 사용을 위해 추가 -->
     <uses-permission android:name="org.fidoalliance.uaf.permissions.FIDO_CLIENT" />
+    <!-- 2016.03.7. yjosn. 지문 사용을 위해 추가 -->
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
-    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" /> <!-- 2016.09.21. yjosn. 네트워크 상태 체크를 위해 추가 -->
+    <!-- 2016.09.21. yjosn. 네트워크 상태 체크를 위해 추가 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- FIDO Facet ID 를 로컬 저장장치에 저장하기 위한 퍼미션(Facet ID 추출 시에만 필요함) -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 
     <application
@@ -27,6 +32,17 @@
         </activity>
         <activity android:name=".activity.MainActivity">
         </activity>
+        <!-- 1-1) 지문인증 액티비티(삼성, 팬택폰) -->
+        <!-- 재정의 할 로컬 액티비티(삼성 또는 팬택폰 지문인증 화면 액티비티) -->
+        <activity
+            android:name="com.linkme.fido.fido.activity.FingerprintLegacyActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 1-1) 지문인증 액티비티(구글 API 사용폰) -->
+        <!-- 재정의 할 로컬 액티비티(구글 지문 API를 사용하는 기기의 지문인증 화면 액티비티) -->
+        <activity
+            android:name="com.linkme.fido.fido.activity.FingerprintGoogleActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

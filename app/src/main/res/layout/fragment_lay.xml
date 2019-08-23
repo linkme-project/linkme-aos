@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btnFingerRegTest"
+            style="@style/RoundButtonLayout"
+            android:layout_height="62dp"
+            android:onClick="onClickFingerTestReg"
+            android:text="지문등록 동작 테스트" />
+
+        <Button
+            android:id="@+id/btnFingerAuthTest"
+            style="@style/RoundButtonLayout"
+            android:layout_height="62dp"
+            android:onClick="onClickFingerTestAuth"
+            android:text="지문인증 동작 테스트" />
+
+        <Button
+            android:id="@+id/btnFingerDeregTest"
+            style="@style/RoundButtonLayout"
+            android:layout_height="62dp"
+            android:onClick="onClickFingerTestDereg"
+            android:text="지문해제 동작 테스트" />
+
+    </LinearLayout>
+
+</LinearLayout>

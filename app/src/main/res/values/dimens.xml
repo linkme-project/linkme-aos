@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="font_100_dp">34dp</dimen>
+    <dimen name="font_60_dp">26dp</dimen>
+    <dimen name="font_50_dp">25dp</dimen>
+    <dimen name="font_40_dp">20dp</dimen>
+    <dimen name="font_36_dp">18dp</dimen>
+    <dimen name="font_34_dp">17dp</dimen>
+    <dimen name="font_32_dp">16dp</dimen>
+    <dimen name="font_30_dp">15dp</dimen>
+    <dimen name="font_28_dp">14dp</dimen>
+    <dimen name="font_26_dp">13dp</dimen>
+    <dimen name="font_24_dp">12dp</dimen>
+    <dimen name="font_22_dp">11dp</dimen>
+
+
+    <dimen name="size_660">440dp</dimen>
+    <dimen name="size_330">220dp</dimen>
+    <dimen name="size_300">200dp</dimen>
+    <dimen name="size_270">180dp</dimen>
+    <dimen name="size_100">67dp</dimen>
+    <dimen name="size_96">64dp</dimen>
+    <dimen name="size_90">60dp</dimen>
+    <dimen name="size_60">40dp</dimen>
+    <dimen name="size_40">26dp</dimen>
+    <dimen name="size_30">20dp</dimen>
+    <dimen name="size_20">15dp</dimen>
+    <dimen name="size_12">9dp</dimen>
+    <dimen name="size_9">6dp</dimen>
+    <dimen name="size_6">4dp</dimen>
+    <dimen name="size_3">2dp</dimen>
+
+    <dimen name="inputbox_font_size">15dp</dimen>
+
+    <dimen name="button_height">45dp</dimen>
+    <dimen name="tab_button_height">40dp</dimen>
+    <dimen name="popup_button_height">50dp</dimen>
+    <dimen name="popup_content_minheight">150dp</dimen>
+    <dimen name="bottm_button_height">60dp</dimen>
+    <dimen name="roundbottm_button_height">45dp</dimen>
+    <dimen name="inputbox_height">50dp</dimen>
+    <dimen name="checkbox_height">40dp</dimen>
+    <dimen name="contents_title_height">35dp</dimen>
+
+    <dimen name="menu_1depth_height">30dp</dimen>
+    <dimen name="menu_2depth_height">50dp</dimen>
+    <dimen name="menu_3depth_height">50dp</dimen>
+
+    <dimen name="roundbtn_radius">5dp</dimen>
+</resources>

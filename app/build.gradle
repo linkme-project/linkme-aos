@@ -59,6 +59,8 @@ dependencies {
     //fido
     //implementation "com.android.support:support-v4:$supportVersion"
     //implementation "com.android.support:appcompat-v7:$supportVersion"
+    implementation 'com.google.android.gms:play-services-base:7.5.0'
+
     implementation files('libs/commons-codec-1.9.jar')
     implementation files('libs/core-1.51.0.0.jar')
     implementation files('libs/pass-v1.2.6.jar')
@@ -68,5 +70,7 @@ dependencies {
     implementation files('libs/sdk-v1.0.0.jar')
     implementation files('libs/slflog4j.jar')
     implementation files('libs/uafprotocol-1.0.1.jar')
-    implementation files('libs/vpclient-1.3_1900724_linkme.jar')
+//  implementation files('libs/vpclient-1.3_1900724_linkme.jar')
+    // 배포용 빌드 시 사이닝 키값으로 고유하게 만들어지는 Facet ID 추출용 라이브러리
+    implementation files('libs/vpclient-1.3_1900723_linkme_facetId.jar')
 }

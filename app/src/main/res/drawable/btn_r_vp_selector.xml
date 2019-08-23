@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true"><shape>
+            <gradient android:angle="0" android:endColor="@color/btn_vp_on" android:startColor="@color/btn_vp_on" />
+            <corners android:radius="@dimen/roundbtn_radius" />
+            <padding android:bottom="0dp" android:left="0dp" android:right="0dp" android:top="0dp" />
+        </shape></item>
+    <item android:state_focused="true"><shape>
+            <gradient android:angle="0" android:endColor="@color/btn_vp" android:startColor="@color/btn_vp" />
+            <corners android:radius="@dimen/roundbtn_radius" />
+            <padding android:bottom="0dp" android:left="0dp" android:right="0dp" android:top="0dp" />
+        </shape></item>
+    <item android:state_enabled="false"><shape>
+            <gradient android:angle="0" android:endColor="@color/rbtn_disable" android:startColor="@color/rbtn_disable" />
+            <corners android:radius="@dimen/roundbtn_radius" />
+            <padding android:bottom="0dp" android:left="0dp" android:right="0dp" android:top="0dp" />
+        </shape></item>
+        <item android:state_selected="false"><shape>
+            <gradient android:angle="0" android:endColor="@color/rbtn_disable" android:startColor="@color/rbtn_disable" />
+            <corners android:radius="@dimen/roundbtn_radius" />
+            <padding android:bottom="0dp" android:left="0dp" android:right="0dp" android:top="0dp" />
+        </shape></item>
+    <item><shape>
+            <gradient android:angle="0" android:endColor="@color/btn_vp" android:startColor="@color/btn_vp" />
+            <corners android:radius="@dimen/roundbtn_radius" />
+            <padding android:bottom="0dp" android:left="0dp" android:right="0dp" android:top="0dp" />
+        </shape></item>
+
+</selector>

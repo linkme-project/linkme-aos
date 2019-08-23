@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+    <data>
+        <variable
+            name="activity"
+            type="com.linkme.fido.activity.MainActivity" />
+    </data>
     <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,44 +13,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".activity.MainActivity">
-
-        <LinearLayout
-            android:id="@+id/rl_main"
+        <com.linkme.fido.utils.LinkMeWebView
+            android:id="@+id/wv_main"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <RelativeLayout
-                android:id="@+id/rl_top_menu"
+        </com.linkme.fido.utils.LinkMeWebView>
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:background="@color/white">
+            <TextView
+                android:id="@+id/tv_reg"
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimary" />
-
-                <ImageButton
-                    android:id="@+id/ib_search"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentRight="true"
-                    android:background="@color/white" />
-            </RelativeLayout>
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/vp_main"
+                android:layout_height="100dp"
+                android:onClick="@{activity::testBtnClick}"
+                android:text="reg"/>
+            <TextView
+                android:id="@+id/tv_auth"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-            <LinearLayout
+                android:layout_height="100dp"
+                android:onClick="@{activity::testBtnClick}"
+                android:text="auth"/>
+            <TextView
+                android:id="@+id/tv_dereg"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@+id/vp_main">
-
-            </LinearLayout>
+                android:layout_height="100dp"
+                android:onClick="@{activity::testBtnClick}"
+                android:text="dereg"/>
         </LinearLayout>
-
     </FrameLayout>
 </layout>

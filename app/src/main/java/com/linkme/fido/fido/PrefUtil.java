@@ -12,7 +12,7 @@ public class PrefUtil {
     private final String PREF_NAME = "liivmate_test_preference";
     private Context mContext;
 
-    PrefUtil(Context context){
+    public PrefUtil(Context context){
         this.mContext = context;
     }
 

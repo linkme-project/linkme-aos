@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="telco_list">
+        <item> 통신사 </item>
+        <item> SKT </item>
+        <item> KT </item>
+        <item> LG U+ </item>
+        <item> SKT알뜰폰 </item>
+        <item> KT알뜰폰 </item>
+        <item> LGU+알뜰폰 </item>
+    </string-array>
+
+    <string-array name="nation_list">
+        <item> 국적 </item>
+        <item> 내국인 </item>
+        <item> 외국인 </item>
+    </string-array>
+
+    <string-array name="gender_list">
+        <item> 성별 </item>
+        <item> 남자 </item>
+        <item> 여자 </item>
+    </string-array>
+</resources>
