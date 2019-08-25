@@ -24,6 +24,7 @@ import com.linkme.fido.fido.PrefUtil;
 import com.linkme.fido.fido.activity.FingerprintGoogleActivity;
 import com.linkme.fido.fido.activity.FingerprintLegacyActivity;
 import com.linkme.fido.fido.module.FingerprintUtility;
+import com.linkme.fido.utils.JavascriptBridge;
 import com.vp.fido.Constants;
 import com.vp.fido.VPCManager;
 import com.vp.fido.interfaces.VerifyObserver;
@@ -92,6 +93,8 @@ public class MainActivity extends BaseActivity implements VPCManager.VPCManagerC
         VerifyResultPublisher.getInstance().addUI(MainActivity.this);
 //		VerifyResultPublisher.getInstance().addFIDO(this);
         initHandler.sendEmptyMessage(REQ_PERMISSION_READ_PHONE_STATE_CHECK);
+
+        initJsBridge();
     }
 
     @Override
@@ -459,6 +462,10 @@ public class MainActivity extends BaseActivity implements VPCManager.VPCManagerC
         return false;
     }
 
+    /**
+     * Fido 인증 테스트
+     * @param view
+     */
     public void testBtnClick(View view) {
         switch (view.getId()) {
             case R.id.tv_reg:
@@ -471,5 +478,33 @@ public class MainActivity extends BaseActivity implements VPCManager.VPCManagerC
                 onClickFingerTestDereg();
                 break;
         }
+    }
+
+    /**
+     * JavascriptInterface 추가 및 구현
+     */
+    private void initJsBridge() {
+        binding.wvMain.addJavascriptInterface(new JavascriptBridge() {
+            @Override
+            public void regFido() {
+                runOnUiThread(() -> {
+                    onClickFingerTestReg();
+                });
+            }
+
+            @Override
+            public void authFido() {
+                runOnUiThread(() -> {
+                    onClickFingerTestAuth();
+                });
+            }
+
+            @Override
+            public void deregFido() {
+                runOnUiThread(() -> {
+                    onClickFingerTestDereg();
+                });
+            }
+        }, "LinkMeApp");
     }
 }
