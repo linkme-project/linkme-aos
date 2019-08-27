@@ -28,11 +28,5 @@ public class LinkMeWebView extends WebView {
         settings.setCacheMode(WebSettings.LOAD_NO_CACHE);   //cache disable
         settings.setAppCacheEnabled(false); //local cache disable
         settings.setAllowFileAccess(true);  //for file upload
-
-        WebChromeClient chrome = new WebChromeClient();
-        WebViewClient webview = new WebViewClient();
-
-        this.setWebChromeClient(chrome);
-        this.setWebViewClient(webview);
     }
 }

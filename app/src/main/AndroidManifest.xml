@@ -25,12 +25,13 @@
         android:supportsRtl="true"
         android:theme="@style/LinkMe">
         <activity android:name=".activity.SplashActivity">
+
+        </activity>
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".activity.MainActivity">
         </activity>
         <!-- 1-1) 지문인증 액티비티(삼성, 팬택폰) -->
         <!-- 재정의 할 로컬 액티비티(삼성 또는 팬택폰 지문인증 화면 액티비티) -->
