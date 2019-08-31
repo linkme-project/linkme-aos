@@ -514,7 +514,7 @@ public class MainActivity extends BaseActivity implements VPCManager.VPCManagerC
     }
 
     private void bridgeCallback(int opType, boolean result) {
-        binding.wvMain.loadUrl("javascript:fidoCallback(" + opType + "," + result + ")");
+        binding.wvMain.loadUrl("javascript:window.App.methods.onFidoAuth(" + opType + "," + result + ")");
     }
 
     private void initSplash() {
