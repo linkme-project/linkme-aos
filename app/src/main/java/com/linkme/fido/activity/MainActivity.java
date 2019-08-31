@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -28,7 +29,6 @@ import com.linkme.fido.fido.activity.FingerprintGoogleActivity;
 import com.linkme.fido.fido.activity.FingerprintLegacyActivity;
 import com.linkme.fido.fido.module.FingerprintUtility;
 import com.linkme.fido.utils.JavascriptBridge;
-import com.linkme.fido.utils.LinkMeWebView;
 import com.vp.fido.Constants;
 import com.vp.fido.VPCManager;
 import com.vp.fido.interfaces.VerifyObserver;
@@ -65,6 +65,10 @@ public class MainActivity extends BaseActivity implements VPCManager.VPCManagerC
     private final int REQ_PERMISSION_WRITE_EXTERNAL_STORAGE_CHECK = 5;			// 저장소 사용 요청
     private final int RES_PERMISSION_CHECK_FINISH = 6;							// 퍼미션 체크 완료
 
+    private final int REG = 0;
+    private final int AUTH = 1;
+    private final int DEREG = 2;
+
     // FIDO 생체인증 프로세스를 담당하는 VPClient 클라이언트 매니저
     private VPCManager mVPCManager;
 
@@ -78,6 +82,8 @@ public class MainActivity extends BaseActivity implements VPCManager.VPCManagerC
     // 안드로이드 6.0 이상에서 런타임시 폰 정보에 접근하기 위한 퍼미션 요청 코드
     private static final int REQUEST_READ_PHONE_STATE_PERMISSION = 255;
 
+    private Handler wvHandler;
+
     public static MainActivity getMainActivity(){
         return mMainActivity;
     }
@@ -87,6 +93,11 @@ public class MainActivity extends BaseActivity implements VPCManager.VPCManagerC
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setActivity(this);
+
+        if(wvHandler == null) {
+            wvHandler = new Handler();
+        }
+
         binding.wvMain.loadUrl(Constant.BASE_URL);
 
         mMainActivity = this;
@@ -281,6 +292,18 @@ public class MainActivity extends BaseActivity implements VPCManager.VPCManagerC
                 sResult += "FIDO 결과 실패!!";
                 showToastMsg(reqType, resultCode, sResult, opCode);
             }
+
+            switch (opCode) {
+                case etri.fido.uaf.protocol.Operation.Reg:
+                    bridgeCallback(REG, resultCode == 1200? true : false);
+                    break;
+                case etri.fido.uaf.protocol.Operation.Auth:
+                    bridgeCallback(AUTH, resultCode == 1200? true : false);
+                    break;
+                case etri.fido.uaf.protocol.Operation.Dereg:
+                    bridgeCallback(DEREG, resultCode == 1200? true : false);
+                    break;
+            }
         }
     };
 
@@ -472,27 +495,26 @@ public class MainActivity extends BaseActivity implements VPCManager.VPCManagerC
      */
     private void initJsBridge() {
         binding.wvMain.addJavascriptInterface(new JavascriptBridge() {
+            @JavascriptInterface
             @Override
             public void regFido() {
-                runOnUiThread(() -> {
-                    onClickFingerTestReg();
-                });
+                wvHandler.post(() -> onClickFingerTestReg());
             }
-
+            @JavascriptInterface
             @Override
             public void authFido() {
-                runOnUiThread(() -> {
-                    onClickFingerTestAuth();
-                });
+                wvHandler.post(() -> onClickFingerTestAuth());
             }
-
+            @JavascriptInterface
             @Override
             public void deregFido() {
-                runOnUiThread(() -> {
-                    onClickFingerTestDereg();
-                });
+                wvHandler.post(() -> onClickFingerTestDereg());
             }
         }, "LinkMeApp");
+    }
+
+    private void bridgeCallback(int opType, boolean result) {
+        binding.wvMain.loadUrl("javascript:fidoCallback(" + opType + "," + result + ")");
     }
 
     private void initSplash() {
@@ -504,7 +526,6 @@ public class MainActivity extends BaseActivity implements VPCManager.VPCManagerC
     private void hideSplash() {
         binding.rlSplash.setVisibility(View.GONE);
     }
-
 
     class LinkMeClient extends WebViewClient {
         @Override
