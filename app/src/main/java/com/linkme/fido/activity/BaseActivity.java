@@ -33,6 +33,6 @@ public class BaseActivity extends AppCompatActivity {
 
     private void showExitMessage() {
         LinkMeApp app = (LinkMeApp) getApplication();
-        app.showToast("한번더 누르면 종료띠", Toast.LENGTH_SHORT);
+        app.showToast("한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT);
     }
 }
