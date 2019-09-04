@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LinkMe</string>
+    <string name="app_name">LinkME</string>
 
     <string name="phonecert_terms_all_agree">모든 약관에 동의</string>
     <string name="phonecert_terms_1">개인정보 이용 동의 (필수)</string>

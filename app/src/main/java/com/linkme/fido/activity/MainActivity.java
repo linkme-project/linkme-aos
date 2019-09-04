@@ -22,6 +22,7 @@ import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 
 import com.linkme.fido.Constant;
+import com.linkme.fido.LinkMeApp;
 import com.linkme.fido.R;
 import com.linkme.fido.databinding.ActivityMainBinding;
 import com.linkme.fido.fido.PrefUtil;
@@ -83,6 +84,7 @@ public class MainActivity extends BaseActivity implements VPCManager.VPCManagerC
     private static final int REQUEST_READ_PHONE_STATE_PERMISSION = 255;
 
     private Handler wvHandler;
+    private LinkMeApp App;
 
     public static MainActivity getMainActivity(){
         return mMainActivity;
@@ -93,6 +95,7 @@ public class MainActivity extends BaseActivity implements VPCManager.VPCManagerC
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setActivity(this);
+        if (App == null) App = (LinkMeApp) getApplication();
 
         if(wvHandler == null) {
             wvHandler = new Handler();
@@ -287,10 +290,12 @@ public class MainActivity extends BaseActivity implements VPCManager.VPCManagerC
                     sResult += "\n[[ 인증결과 postData : " + result.getPostData() + " ]]\n";
                 }
                 sResult += "FIDO 결과 성공!!";
-                showToastMsg(reqType, resultCode, sResult, opCode);
+//                showToastMsg(reqType, resultCode, sResult, opCode);
+                App.showToast("지문인증 성공", Toast.LENGTH_SHORT);
             } else {
                 sResult += "FIDO 결과 실패!!";
-                showToastMsg(reqType, resultCode, sResult, opCode);
+//                showToastMsg(reqType, resultCode, sResult, opCode);
+                App.showToast("지문인증 실패", Toast.LENGTH_SHORT);
             }
 
             switch (opCode) {
@@ -538,6 +543,8 @@ public class MainActivity extends BaseActivity implements VPCManager.VPCManagerC
 
         public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
             super.onReceivedError(view, errorCode, description, failingUrl);
+            hideSplash();
+
             switch(errorCode) {
                 case ERROR_AUTHENTICATION: break;               // 서버에서 사용자 인증 실패
                 case ERROR_BAD_URL: break;                           // 잘못된 URL
